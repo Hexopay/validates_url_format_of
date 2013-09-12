@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 Gem::Specification.new do |gem|
-  gem.add_dependency 'activerecord', '~> 3.2'
+  gem.add_dependency 'activerecord', '>= 3.2'
   gem.add_development_dependency 'minitest'
   gem.add_development_dependency 'rake'
   gem.add_development_dependency 'rdiscount'
