@@ -1,6 +1,6 @@
 require File.expand_path('../helper', __FILE__)
 
-class ValidatesUrlFormatOfTest < MiniTest::Unit::TestCase
+class ValidatesUrlFormatOfTest < MiniTest::Test
 
   def setup
     @model = Model.new
@@ -28,7 +28,9 @@ class ValidatesUrlFormatOfTest < MiniTest::Unit::TestCase
       'https://example.com',
       'http://xn--rksmrgs-5wao1o.nu', # Punycode
       'http://example.com.', # Explicit TLD root period
-      'http://example.com./foo'
+      'http://example.com./foo',
+      'http://example.cancerresearch',
+      'http://example.solutions'
     ].each do |url|
       @model.homepage = url
       @model.save
