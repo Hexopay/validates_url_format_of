@@ -9,6 +9,9 @@ class ValidatesUrlFormatOfTest < MiniTest::Test
   def test_should_allow_valid_urls
     [
       'http://example.com',
+      'http://d124.example.com',
+      'http://333.example.com',
+      'http://example345.com',
       'http://example.com/',
       'http://www.example.com/',
       'http://sub.domain.example.com/',
