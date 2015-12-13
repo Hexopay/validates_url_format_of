@@ -2,11 +2,12 @@ require 'active_record'
 
 module ValidatesUrlFormatOf
   IPv4_PART = /\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]/  # 0-255
+  ACCEPETED_SCRIPTS = '\p{Common}\p{Latin}\p{Cyrillic}\p{Arabic}\p{Georgian}'
   REGEXP = %r{
     \A
     https?://                                        # http:// or https://
     ([^\s:@]+:[^\s:@]*@)?                            # optional username:pw@
-    ( (xn--)?[\p{Cyrillic}\p{Latin}0-9_]+([-._][\p{Cyrillic}\p{Latin}0-9]+)*\.[\p{Cyrillic}\p{Latin}]{2,14}\.? |  # domain (including Punycode/IDN)...
+    ( (xn--)?[#{ACCEPETED_SCRIPTS}_]+([-._][#{ACCEPETED_SCRIPTS}]+)*\.[#{ACCEPETED_SCRIPTS}]{2,14}\.? |  # domain (including Punycode/IDN)...
         #{IPv4_PART}(\.#{IPv4_PART}){3} )            # or IPv4
     (:\d{1,5})?                                      # optional port
     ([/?]\S*)?                                       # optional /whatever or ?whatever

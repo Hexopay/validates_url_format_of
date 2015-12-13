@@ -34,7 +34,9 @@ class ValidatesUrlFormatOfTest < MiniTest::Test
       'http://_test.example.com',
       'http://test.exa_mple.com',
       'http://кириллица.рф',
-      'http://тест.бел'
+      'http://тест.бел',
+      'http://test.қаз',
+      'http://example.გე'
     ].each do |url|
       @model.homepage = url
       @model.save
