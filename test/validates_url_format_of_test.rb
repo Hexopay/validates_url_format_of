@@ -30,7 +30,11 @@ class ValidatesUrlFormatOfTest < MiniTest::Test
       'http://example.com.', # Explicit TLD root period
       'http://example.com./foo',
       'http://example.cancerresearch',
-      'http://example.solutions'
+      'http://example.solutions',
+      'http://_test.example.com',
+      'http://test.exa_mple.com',
+      'http://кириллица.рф',
+      'http://тест.бел'
     ].each do |url|
       @model.homepage = url
       @model.save
