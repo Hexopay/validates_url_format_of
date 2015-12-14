@@ -9,6 +9,9 @@ class ValidatesUrlFormatOfTest < MiniTest::Test
   def test_should_allow_valid_urls
     [
       'http://example.com',
+      'http://d124.example.com',
+      'http://333.example.com',
+      'http://example345.com',
       'http://example.com/',
       'http://www.example.com/',
       'http://sub.domain.example.com/',
@@ -30,7 +33,13 @@ class ValidatesUrlFormatOfTest < MiniTest::Test
       'http://example.com.', # Explicit TLD root period
       'http://example.com./foo',
       'http://example.cancerresearch',
-      'http://example.solutions'
+      'http://example.solutions',
+      'http://_test.example.com',
+      'http://test.exa_mple.com',
+      'http://кириллица.рф',
+      'http://тест.бел',
+      'http://test.қаз',
+      'http://example.გე'
     ].each do |url|
       @model.homepage = url
       @model.save
